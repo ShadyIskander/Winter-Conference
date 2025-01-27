@@ -1,236 +1,174 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مؤتمر الشتاء 2025 - إدخال المستخدم</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #b3daff, #ffffff);
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 50px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        h2 {
-            color: #0056b3;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: right;
-        }
-
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input,
-        select,
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-        }
-
-        input:focus,
-        select:focus {
-            outline: none;
-            border-color: #0056b3;
-            box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
-        }
-
-        button {
-            background: #0056b3;
-            color: white;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background: #004099;
-        }
-
-        .confirmation {
-            display: none;
-            text-align: center;
-            margin: 50px auto;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .confirmation h2 {
-            color: #0056b3;
-        }
-
-        .confirmation p {
-            font-size: 16px;
-            color: #333;
-        }
-
-        .confirmation a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #0056b3;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .confirmation a:hover {
-            background: #004099;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form to Google Sheet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gradient-to-r from-blue-50 to-indigo-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-lg w-full">
+    <h2 class="text-3xl font-extrabold text-indigo-600 mb-6 text-center">مؤتمر الشتاء 2025</h2>
+    <form id="customForm" class="space-y-6">
+      <!-- Text Field 1 -->
+      <div>
+        <label for="textField1" class="block text-sm font-medium text-gray-700 mb-1 text-right">الاسم</label>
+        <input type="text" id="textField1" name="textField1" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" placeholder="ادخل اسمك" required>
+      </div>
 
-<body>
-    <div class="container" id="formContainer">
-        <h2>مؤتمر الشتاء 2025</h2>
-        <p> يرجى إدخال بياناتك:</p>
-        <form id="userForm">
-            <div class="form-group">
-                <label for="name">الاسم</label>
-                <input type="text" id="name" placeholder="أدخل اسمك" required>
-            </div>
+      <!-- Text Field 2 -->
+      <div>
+        <label for="textField2" class="block text-sm font-medium text-gray-700 mb-1 text-right">رقم الهاتف</label>
+        <input type="text" id="textField2" name="textField2" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" placeholder="ادخل رقم هاتفك" required>
+      </div>
 
-            <div class="form-group">
-                <label for="phone">رقم الهاتف</label>
-                <input type="tel" id="phone" placeholder="أدخل رقم هاتفك" required style="text-align: right;">
-            </div>
+      <!-- Gender Dropdown -->
+      <div>
+        <label for="gender" class="block text-sm font-medium text-gray-700 mb-1 text-right">الجنس</label>
+        <select id="gender" name="gender" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
+          <option value="">اختر الجنس</option>
+          <option value="Male">ذكر</option>
+          <option value="Female">انثى</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label for="gender">الجنس</label>
-                <select id="gender" required>
-                    <option value="">اختر الجنس</option>
-                    <option value="Male">ذكر</option>
-                    <option value="Female">أنثى</option>
-                </select>
-            </div>
+      <!-- Preference Dropdowns -->
+      <div>
+        <label for="preference1" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الاول</label>
+        <select id="preference1" name="preference1" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
+          <option value="">اختر التفضيل</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label for="firstPreference">التفضيل الأول</label>
-                <select id="firstPreference" required>
-                    <option value="">اختر التفضيل الأول</option>
-                </select>
-            </div>
+      <div>
+        <label for="preference2" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الثاني</label>
+        <select id="preference2" name="preference2" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
+          <option value="">اختر التفضيل</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label for="secondPreference">التفضيل الثاني</label>
-                <select id="secondPreference" required>
-                    <option value="">اختر التفضيل الثاني</option>
-                </select>
-            </div>
+      <div>
+        <label for="preference3" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الثالث</label>
+        <select id="preference3" name="preference3" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
+          <option value="">اختر التفضيل</option>
+        </select>
+      </div>
 
-            <div class="form-group">
-                <label for="thirdPreference">التفضيل الثالث</label>
-                <select id="thirdPreference" required>
-                    <option value="">اختر التفضيل الثالث</option>
-                </select>
-            </div>
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-3 px-4 rounded-lg shadow-md text-lg font-medium hover:from-indigo-600 hover:to-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Submit</button>
+      </div>
+    </form>
+  </div>
 
-            <button type="submit">تسجيل</button>
-        </form>
-    </div>
+  <script>
+    const genderOptions = {
+      Male: [
+        { name: 'سامي ثابت', value: 'Samy Thabet' },
+        { name: 'طارق عزيز', value: 'Tarek Aziz' },
+        { name: 'رمزي ريمون', value: 'Ramzy Raymond' },
+        { name: 'مايكل محسن', value: 'Michael Mohsen' },
+        { name: 'تامر سمير', value: 'Tamer Samir' },
+        { name: 'ماجد عادل', value: 'Maged Adel' }
+        
+      ],
+      Female: [
+        { name: 'منال ويصا', value: 'Manal Wisa' },
+        { name: 'كريستين', value: 'Christine' },
+        { name: 'نيفين محسن', value: 'Nevin Mohsen' },
+        { name: 'هايدي مصري', value: 'Haidy Masry' },
+        { name: 'جيني', value: 'Jenny' },
+        { name: 'كريستا', value: 'Krista' }
+      ]
+    };
 
-    <div class="confirmation" id="confirmationMessage">
-        <h2>تم تسجيل ردك!</h2>
-        <p>شكرًا لك على التسجيل. سوف نعود إليك قريبًا.</p>
-        <a href="#" onclick="goBackToForm()">العودة إلى الصفحة الرئيسية</a>
-    </div>
+    const genderSelect = document.getElementById('gender');
+    const preferenceDropdowns = document.querySelectorAll('#preference1, #preference2, #preference3');
+    let currentOptions = [];
 
-    <script>
-        const defaultNames = [
-            { name: 'سامي ثابت', gender: 'Male' },
-            { name: 'منال ويصا', gender: 'Female' },
-            { name: 'طارق عزيز', gender: 'Male' },
-            { name: 'كريستين', gender: 'Female' }
-        ];
+    function updatePreferencesBasedOnGender() {
+      const selectedGender = genderSelect.value;
+      currentOptions = genderOptions[selectedGender] || [];
+      
+      // Clear all preferences when gender changes
+      preferenceDropdowns.forEach(dropdown => {
+        dropdown.value = '';
+        dropdown.innerHTML = '<option value="">Select Preference</option>';
+      });
 
-        function populateDropdowns(gender) {
-            const firstPreference = document.getElementById('firstPreference');
-            const secondPreference = document.getElementById('secondPreference');
-            const thirdPreference = document.getElementById('thirdPreference');
+      // Populate new options
+      currentOptions.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.value = option.value;
+        optionElement.textContent = option.name;
+        preferenceDropdowns.forEach(dropdown => {
+          dropdown.appendChild(optionElement.cloneNode(true));
+        });
+      });
 
-            const filteredNames = gender ? defaultNames.filter(person => person.gender === gender) : [];
-            const options = filteredNames.map(person => `<option value="${person.name}">${person.name}</option>`).join('');
+      updateUniquePreferences();
+    }
 
-            firstPreference.innerHTML = `<option value="">اختر التفضيل الأول</option>${options}`;
-            secondPreference.innerHTML = `<option value="">اختر التفضيل الثاني</option>${options}`;
-            thirdPreference.innerHTML = `<option value="">اختر التفضيل الثالث</option>${options}`;
+    function updateUniquePreferences() {
+      const selectedValues = Array.from(preferenceDropdowns).map(dropdown => dropdown.value);
+      
+      preferenceDropdowns.forEach(dropdown => {
+        const currentValue = dropdown.value;
+        dropdown.innerHTML = '<option value="">Select Preference</option>';
+        
+        currentOptions.forEach(option => {
+          if (!selectedValues.includes(option.value) || option.value === currentValue) {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.value;
+            optionElement.textContent = option.name;
+            dropdown.appendChild(optionElement);
+          }
+        });
+        
+        if (currentValue && dropdown.options.length === 1) {
+          const optionElement = document.createElement('option');
+          optionElement.value = currentValue;
+          optionElement.textContent = currentOptions.find(o => o.value === currentValue)?.name || currentValue;
+          dropdown.appendChild(optionElement);
         }
+        
+        dropdown.value = currentValue;
+      });
+    }
 
-        document.getElementById('gender').addEventListener('change', (e) => {
-            const selectedGender = e.target.value;
-            populateDropdowns(selectedGender);
+    // Event listeners
+    genderSelect.addEventListener('change', updatePreferencesBasedOnGender);
+    preferenceDropdowns.forEach(dropdown => {
+      dropdown.addEventListener('change', updateUniquePreferences);
+    });
+  </script>
+
+  <script>
+    document.getElementById("customForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxU7M8hSc40Tf-TU01phhM-IgIYIUmdA3bg4sDfPE4L5h284WZPd_8QGinMCWzURQpY/exec";
+      const formData = new FormData(e.target);
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: "POST",
+          body: formData,
         });
 
-        document.getElementById('userForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const gender = document.getElementById('gender').value;
-            const firstPreference = document.getElementById('firstPreference').value;
-            const secondPreference = document.getElementById('secondPreference').value;
-            const thirdPreference = document.getElementById('thirdPreference').value;
-
-            const formData = {
-                name,
-                phone,
-                gender,
-                firstPreference,
-                secondPreference,
-                thirdPreference,
-            };
-
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbwOnFi2SnSoiIhRItMZySRq4X3UDY0eDotGw098mA-YIucYw8-2LYKAWPh41PwM0BZaOQ/exec';
-
-            try {
-                const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData),
-                });
-
-                const result = await response.json();
-
-                if (result.status === 'success') {
-                    document.getElementById('formContainer').style.display = 'none';
-                    document.getElementById('confirmationMessage').style.display = 'block';
-                } else {
-                    alert('Error submitting the form: ' + result.message);
-                }
-            } catch (error) {
-                alert('There was an error connecting to the server: ' + error.message);
-            }
-        });
-
-        function goBackToForm() {
-            document.getElementById('confirmationMessage').style.display = 'none';
-            document.getElementById('formContainer').style.display = 'block';
+        const result = await response.json();
+        if (result.status === "success") {
+          alert("Form submitted successfully!");
+          e.target.reset();
+          updatePreferencesBasedOnGender(); // Reset all dropdowns
+        } else {
+          alert("Failed to submit the form.");
         }
-    </script>
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      }
+    });
+  </script>
 </body>
-
 </html>
