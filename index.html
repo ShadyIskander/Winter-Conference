@@ -3,27 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form to Google Sheet</title>
+  <title>مؤتمر الشتاء 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <style>
+    @keyframes gradientBackground {
+      0% { background-color: #4f46e5; }
+      25% { background-color: #9333ea; }
+      50% { background-color: #2563eb; }
+      75% { background-color: #1e40af; }
+      100% { background-color: #4f46e5; }
+    }
+
+    .gradient-bg {
+      animation: gradientBackground 10s ease infinite;
+      background-color: #4f46e5;
+    }
+
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.02);
+    }
+
+    .notification {
+      position: fixed;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #10b981;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+      transition: bottom 0.5s ease;
+    }
+
+    .notification.show {
+      bottom: 20px;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-r from-blue-50 to-indigo-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-lg w-full">
-    <h2 class="text-3xl font-extrabold text-indigo-600 mb-6 text-center">مؤتمر الشتاء 2025</h2>
+<body class="gradient-bg flex items-center justify-center min-h-screen">
+  <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-lg w-full hover-scale">
+    <h2 class="text-4xl font-extrabold text-indigo-600 mb-6 text-center animate__animated animate__fadeInDown">مؤتمر الشتاء 2025</h2>
     <form id="customForm" class="space-y-6">
       <!-- Text Field 1 -->
-      <div>
+      <div class="animate__animated animate__fadeInLeft">
         <label for="textField1" class="block text-sm font-medium text-gray-700 mb-1 text-right">الاسم</label>
         <input type="text" id="textField1" name="textField1" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" placeholder="ادخل اسمك" required>
       </div>
 
       <!-- Text Field 2 -->
-      <div>
+      <div class="animate__animated animate__fadeInRight">
         <label for="textField2" class="block text-sm font-medium text-gray-700 mb-1 text-right">رقم الهاتف</label>
         <input type="text" id="textField2" name="textField2" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" placeholder="ادخل رقم هاتفك" required>
       </div>
 
       <!-- Gender Dropdown -->
-      <div>
+      <div class="animate__animated animate__fadeInLeft">
         <label for="gender" class="block text-sm font-medium text-gray-700 mb-1 text-right">الجنس</label>
         <select id="gender" name="gender" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر الجنس</option>
@@ -33,21 +74,21 @@
       </div>
 
       <!-- Preference Dropdowns -->
-      <div>
+      <div class="animate__animated animate__fadeInRight">
         <label for="preference1" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الاول</label>
         <select id="preference1" name="preference1" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر التفضيل</option>
         </select>
       </div>
 
-      <div>
+      <div class="animate__animated animate__fadeInLeft">
         <label for="preference2" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الثاني</label>
         <select id="preference2" name="preference2" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر التفضيل</option>
         </select>
       </div>
 
-      <div>
+      <div class="animate__animated animate__fadeInRight">
         <label for="preference3" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الثالث</label>
         <select id="preference3" name="preference3" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر التفضيل</option>
@@ -55,10 +96,18 @@
       </div>
 
       <!-- Submit Button -->
-      <div>
-        <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-3 px-4 rounded-lg shadow-md text-lg font-medium hover:from-indigo-600 hover:to-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50">Submit</button>
+      <div class="animate__animated animate__fadeInUp">
+        <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-3 px-4 rounded-lg shadow-md text-lg font-medium hover:from-indigo-600 hover:to-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover-scale">
+          Submit
+        </button>
       </div>
     </form>
+  </div>
+
+  <!-- Notification -->
+  <div id="notification" class="notification">
+    تم إرسال إجابتك بنجاح
+
   </div>
 
   <script>
@@ -70,7 +119,6 @@
         { name: 'مايكل محسن', value: 'Michael Mohsen' },
         { name: 'تامر سمير', value: 'Tamer Samir' },
         { name: 'ماجد عادل', value: 'Maged Adel' }
-        
       ],
       Female: [
         { name: 'منال ويصا', value: 'Manal Wisa' },
@@ -141,14 +189,38 @@
     preferenceDropdowns.forEach(dropdown => {
       dropdown.addEventListener('change', updateUniquePreferences);
     });
-  </script>
 
-  <script>
+    // Notification logic
+    function showNotification() {
+      const notification = document.getElementById('notification');
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000); // Hide after 3 seconds
+    }
+
+    // Form submission logic
     document.getElementById("customForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const scriptURL = "https://script.google.com/macros/s/AKfycbxU7M8hSc40Tf-TU01phhM-IgIYIUmdA3bg4sDfPE4L5h284WZPd_8QGinMCWzURQpY/exec";
       const formData = new FormData(e.target);
+      const submitButton = e.target.querySelector('button[type="submit"]');
+
+      // Add timestamp to form data
+      const now = new Date();
+      const timestamp = now.toLocaleString(); // Format: "MM/DD/YYYY, HH:MM:SS AM/PM"
+      formData.append('timestamp', timestamp);
+
+      // Add loading state
+      submitButton.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        جاري الارسال...
+      `;
+      submitButton.disabled = true;
 
       try {
         const response = await fetch(scriptURL, {
@@ -158,15 +230,19 @@
 
         const result = await response.json();
         if (result.status === "success") {
-          alert("Form submitted successfully!");
+          showNotification(); // Show the green notification
           e.target.reset();
-          updatePreferencesBasedOnGender(); // Reset all dropdowns
+          updatePreferencesBasedOnGender();
         } else {
-          alert("Failed to submit the form.");
+          alert("فشل في ارسال النموذج.");
         }
       } catch (error) {
         console.error("Error:", error);
-        alert("An error occurred. Please try again.");
+        alert("حدث خطأ. الرجاء المحاولة مرة أخرى.");
+      } finally {
+        // Reset button state
+        submitButton.innerHTML = 'Submit';
+        submitButton.disabled = false;
       }
     });
   </script>
