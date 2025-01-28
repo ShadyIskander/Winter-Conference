@@ -6,6 +6,7 @@
   <title>مؤتمر الشتاء 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     @keyframes gradientBackground {
       0% { background-color: #4f46e5; }
@@ -45,27 +46,54 @@
     .notification.show {
       bottom: 20px;
     }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff0;
+      opacity: 0;
+      animation: confetti-fall 5s ease-in-out infinite;
+    }
+
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
   </style>
 </head>
-<body class="gradient-bg flex items-center justify-center min-h-screen">
+<body class="gradient-bg flex items-center justify-center min-h-screen relative overflow-hidden">
+  <!-- Confetti Effect -->
+  <div id="confetti-container" class="absolute top-0 left-0 w-full h-full pointer-events-none">
+    <!-- Confetti will be generated here -->
+  </div>
+
   <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-lg w-full hover-scale">
-    <h2 class="text-4xl font-extrabold text-indigo-600 mb-6 text-center animate__animated animate__fadeInDown">مؤتمر الشتاء 2025</h2>
+    <h2 class="text-4xl font-extrabold text-indigo-600 mb-6 text-center animate__animated animate__fadeInDown">
+      <i class="fas fa-snowflake mr-2"></i>مؤتمر الشتاء 2025<i class="fas fa-snowflake ml-2"></i>
+    </h2>
     <form id="customForm" class="space-y-6">
       <!-- Text Field 1 -->
       <div class="animate__animated animate__fadeInLeft">
-        <label for="textField1" class="block text-sm font-medium text-gray-700 mb-1 text-right">الاسم</label>
+        <label for="textField1" class="block text-sm font-medium text-gray-700 mb-1 text-right">
+          <i class="fas fa-user mr-2"></i>الاسم
+        </label>
         <input type="text" id="textField1" name="textField1" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" placeholder="ادخل اسمك" required>
       </div>
 
       <!-- Text Field 2 -->
       <div class="animate__animated animate__fadeInRight">
-        <label for="textField2" class="block text-sm font-medium text-gray-700 mb-1 text-right">رقم الهاتف</label>
+        <label for="textField2" class="block text-sm font-medium text-gray-700 mb-1 text-right">
+          <i class="fas fa-phone mr-2"></i>رقم الهاتف
+        </label>
         <input type="text" id="textField2" name="textField2" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" placeholder="ادخل رقم هاتفك" required>
       </div>
 
       <!-- Gender Dropdown -->
       <div class="animate__animated animate__fadeInLeft">
-        <label for="gender" class="block text-sm font-medium text-gray-700 mb-1 text-right">الجنس</label>
+        <label for="gender" class="block text-sm font-medium text-gray-700 mb-1 text-right">
+          <i class="fas fa-venus-mars mr-2"></i>الجنس
+        </label>
         <select id="gender" name="gender" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر الجنس</option>
           <option value="Male">ذكر</option>
@@ -75,21 +103,27 @@
 
       <!-- Preference Dropdowns -->
       <div class="animate__animated animate__fadeInRight">
-        <label for="preference1" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الاول</label>
+        <label for="preference1" class="block text-sm font-medium text-gray-700 mb-1 text-right">
+          <i class="fas fa-star mr-2"></i>التفضيل الاول
+        </label>
         <select id="preference1" name="preference1" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر التفضيل</option>
         </select>
       </div>
 
       <div class="animate__animated animate__fadeInLeft">
-        <label for="preference2" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الثاني</label>
+        <label for="preference2" class="block text-sm font-medium text-gray-700 mb-1 text-right">
+          <i class="fas fa-star mr-2"></i>التفضيل الثاني
+        </label>
         <select id="preference2" name="preference2" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر التفضيل</option>
         </select>
       </div>
 
       <div class="animate__animated animate__fadeInRight">
-        <label for="preference3" class="block text-sm font-medium text-gray-700 mb-1 text-right">التفضيل الثالث</label>
+        <label for="preference3" class="block text-sm font-medium text-gray-700 mb-1 text-right">
+          <i class="fas fa-star mr-2"></i>التفضيل الثالث
+        </label>
         <select id="preference3" name="preference3" class="block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-right" required>
           <option value="">اختر التفضيل</option>
         </select>
@@ -98,7 +132,7 @@
       <!-- Submit Button -->
       <div class="animate__animated animate__fadeInUp">
         <button type="submit" class="w-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white py-3 px-4 rounded-lg shadow-md text-lg font-medium hover:from-indigo-600 hover:to-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover-scale">
-          Submit
+          <i class="fas fa-paper-plane mr-2"></i>Submit
         </button>
       </div>
     </form>
@@ -106,8 +140,7 @@
 
   <!-- Notification -->
   <div id="notification" class="notification">
-    تم إرسال إجابتك بنجاح
-
+    <i class="fas fa-check-circle mr-2"></i>تم إرسال إجابتك بنجاح
   </div>
 
   <script>
@@ -199,6 +232,24 @@
       }, 3000); // Hide after 3 seconds
     }
 
+    // Confetti logic
+    function createConfetti() {
+      const confettiContainer = document.getElementById('confetti-container');
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = `${Math.random() * 100}%`;
+      confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confettiContainer.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+
+    function triggerConfetti() {
+      for (let i = 0; i < 100; i++) {
+        setTimeout(createConfetti, Math.random() * 1000);
+      }
+    }
+
     // Form submission logic
     document.getElementById("customForm").addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -231,6 +282,7 @@
         const result = await response.json();
         if (result.status === "success") {
           showNotification(); // Show the green notification
+          triggerConfetti(); // Trigger confetti effect
           e.target.reset();
           updatePreferencesBasedOnGender();
         } else {
@@ -241,7 +293,7 @@
         alert("حدث خطأ. الرجاء المحاولة مرة أخرى.");
       } finally {
         // Reset button state
-        submitButton.innerHTML = 'Submit';
+        submitButton.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Submit';
         submitButton.disabled = false;
       }
     });
